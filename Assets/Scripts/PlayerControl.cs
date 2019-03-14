@@ -6,6 +6,9 @@ using UnityEngine.Serialization;
 
 public class PlayerControl : MonoBehaviour
 {
+    [Range(1,2)]
+    public int PlayerNumber;
+
     [FormerlySerializedAs("Speed")] [Tooltip("Units per second")]
     public float MoveSpeed;
     [Tooltip("Degrees per second")]
@@ -13,12 +16,6 @@ public class PlayerControl : MonoBehaviour
     [Tooltip("Degrees per second")]
     public float PitchSpeed = 120f;
     
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         Rotate();
@@ -30,28 +27,14 @@ public class PlayerControl : MonoBehaviour
 
     private void Rotate()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Rotate(Vector3.forward, RotationSpeed * Time.fixedDeltaTime, Space.Self);
-        }
-        
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Rotate(Vector3.forward, -RotationSpeed * Time.fixedDeltaTime, Space.Self);
-        }
+        var horizontal = Input.GetAxisRaw($"Horizontal.Player{PlayerNumber}");
+        transform.Rotate(Vector3.back, RotationSpeed * Time.fixedDeltaTime * horizontal, Space.Self);
     }
 
     private void Pitch()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.Rotate(Vector3.right, PitchSpeed * Time.fixedDeltaTime, Space.Self);
-        }        
-
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.Rotate(Vector3.right, -PitchSpeed * Time.fixedDeltaTime, Space.Self);
-        }        
+        var vertical = Input.GetAxisRaw($"Vertical.Player{PlayerNumber}");
+        transform.Rotate(Vector3.right, PitchSpeed * Time.fixedDeltaTime * vertical, Space.Self);
     }
     
     private void Move()
