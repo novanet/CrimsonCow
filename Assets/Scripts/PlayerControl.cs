@@ -15,6 +15,13 @@ public class PlayerControl : MonoBehaviour
     public float RotationSpeed = 180f;
     [Tooltip("Degrees per second")]
     public float PitchSpeed = 120f;
+
+    private Rigidbody _rigidbody;
+
+    void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
     
     void FixedUpdate()
     {

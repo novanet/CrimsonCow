@@ -1,58 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class HallwayGenerator : MonoBehaviour
 {
-    public float Width, Height, Depth, WallThickness;
-    public int NumberOfSegments;
+    public int NumberOfObstacles;
+    public int NumberOfLeadingSegments;
+    public GameObject HallwayPrefab;
+    public GameObject GoalPrefab;
+    public GameObject[] Obstacles;
+    private List<GameObject> _obstacles = new List<GameObject>();
 
     void Start()
     {
-        for (var i = 0; i < NumberOfSegments; i++)
+        _obstacles.AddRange(Obstacles);
+
+        var totalSegments = NumberOfObstacles + NumberOfLeadingSegments;
+        
+        var sizeOfLastSegment = new Vector3(50, 50, 50);
+        
+        for (var i = 0; i < totalSegments; i++)
         {
-            CreateEmptySegment($"Segment{i}", new Vector3(0, 0, Depth * i));
+            var position = new Vector3(0, 0, sizeOfLastSegment.z * i);
+            var segment = Instantiate(HallwayPrefab, position, Quaternion.identity, transform);
+            //sizeOfLastSegment = segment.GetComponent<Renderer>().bounds.size;
+
+            if (i == totalSegments - 1)
+            {
+                Instantiate(GoalPrefab, position, Quaternion.identity, transform);
+            } 
+            else if (i >= NumberOfLeadingSegments)
+            {
+                PlaceRandomObstacle(position, segment.transform);
+            }
+                
         }
     }
 
-    private void CreateEmptySegment(string name, Vector3 position)
+    private void PlaceRandomObstacle(Vector3 position, Transform parent)
     {
-        // Create empty gameObject per segment
-        var segment = new GameObject(name).transform;
-        segment.parent = transform;
-            
-        // ceiling
-        CreateWall(
-            new Vector3(Width, 1, Depth),
-            new Vector3(0, Height / 2 + WallThickness / 2, 0) + position,
-            segment);
-            
-        // floor
-        CreateWall(
-            new Vector3(Width, 1, Depth),
-            new Vector3(0, - Height / 2 - WallThickness / 2, 0) + position,
-            segment);
+        var random = Random.Range(0, _obstacles.Count);
+        var obstacle = _obstacles[random];
+        _obstacles.Remove(obstacle);
 
-        // right wall
-        CreateWall(
-            new Vector3(1, Height, Depth),
-            new Vector3(Width / 2 + WallThickness / 2, 0, 0) + position,
-            segment);
-
-        // left wall
-        CreateWall(
-            new Vector3(1, Height, Depth),
-            new Vector3(- Width / 2 - WallThickness / 2, 0, 0) + position,
-            segment);
-    }
-
-    private void CreateWall(Vector3 size, Vector3 position, Transform parent)
-    {
-        var cube = GameObject.CreatePrimitive(PrimitiveType.Cube).transform;
-        cube.gameObject.name = "Wall";
-        
-        cube.localScale = size;
-        cube.position = position;
-        cube.parent = parent;
+        Instantiate(obstacle, position, Quaternion.identity, parent);
     }
 }
