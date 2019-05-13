@@ -1,5 +1,8 @@
 ﻿using System;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
+using UnityStandardAssets.Cameras;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -51,6 +54,12 @@ public class PlayerCollision : MonoBehaviour
     {
         if (other.CompareTag("Player"))
             return;
+
+        if (other.CompareTag("Finish"))
+        {
+            TriggerEnd();
+            return;
+        }
         
         Debug.Log($"OnTriggerEnter: {other.name} ({other.GetType().Name})");
 
@@ -58,6 +67,18 @@ public class PlayerCollision : MonoBehaviour
         DisablePlayerControl();
         SetTarget();
         RegisterCameraDistance();
+    }
+
+    private void TriggerEnd()
+    {
+        Camera.GetComponent<AutoCam>().enabled = false;
+        Camera.GetComponent<LookAtCam>().enabled = true;
+        GetComponent<PlayerControl>().enabled = false;
+        var rigidbody = GetComponent<Rigidbody>();
+        rigidbody.useGravity = true;
+        rigidbody.isKinematic = false;
+        
+        Destroy(this);
     }
 
     private void Stun()
