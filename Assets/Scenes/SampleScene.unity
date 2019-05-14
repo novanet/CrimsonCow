@@ -812,7 +812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82a494eabcc3ca48a22cf3ca7abfb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfObstacles: 8
+  NumberOfObstacles: 12
   NumberOfLeadingSegments: 2
   HallwayPrefab: {fileID: 2342774704413323865, guid: ef541c1cda8e8ef40a470b5946bf5021,
     type: 3}
