@@ -1,7 +1,4 @@
-﻿using System;
-using UnityEditor.SceneManagement;
-using UnityEngine;
-using UnityEngine.Experimental.PlayerLoop;
+﻿using UnityEngine;
 using UnityStandardAssets.Cameras;
 
 public class PlayerCollision : MonoBehaviour
@@ -9,8 +6,6 @@ public class PlayerCollision : MonoBehaviour
     private PlayerControl _playerControl;
     private bool _isStunned = false;
     private float _timeOfLastCollision = 0;
-    private Vector3 _backoffTarget;
-    private float _cameraDistance;
     
     [Tooltip("Number of seconds the player will lose control on collision")]
     public float StunTime = 1f;
@@ -34,7 +29,6 @@ public class PlayerCollision : MonoBehaviour
         else if (_isStunned)
         {
             BackOff();
-            SetCamera();
         }
     }
 
@@ -45,10 +39,6 @@ public class PlayerCollision : MonoBehaviour
         transform.position += distance;
     }
     
-    private void SetCamera()
-    {
-        Camera.transform.position = transform.position - transform.forward * _cameraDistance;
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -65,8 +55,6 @@ public class PlayerCollision : MonoBehaviour
 
         Stun();
         DisablePlayerControl();
-        SetTarget();
-        RegisterCameraDistance();
     }
 
     private void TriggerEnd()
@@ -100,15 +88,5 @@ public class PlayerCollision : MonoBehaviour
     private void EnablePlayerControl()
     {
         _playerControl.enabled = true;
-    }
-
-    private void SetTarget()
-    {
-        _backoffTarget = transform.position - transform.forward * BackOffDistance;
-    }
-
-    private void RegisterCameraDistance()
-    {
-        _cameraDistance = (transform.position - Camera.transform.position).magnitude;
     }
 }

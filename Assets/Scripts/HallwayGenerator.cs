@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -10,40 +11,46 @@ public class HallwayGenerator : MonoBehaviour
     public GameObject HallwayPrefab;
     public GameObject GoalPrefab;
     public GameObject[] Obstacles;
-    private List<GameObject> _obstacles = new List<GameObject>();
 
     void Start()
     {
-        _obstacles.AddRange(Obstacles);
-
-        var totalSegments = NumberOfObstacles + NumberOfLeadingSegments;
+        var totalSegments = NumberOfObstacles + NumberOfLeadingSegments + 1; // one extra for goal segment
+        var obstacles = CreateEndlessRandomObstacleList().Take(NumberOfObstacles).ToArray();
         
-        var sizeOfLastSegment = new Vector3(50, 50, 50);
+        var sizeOfLastSegment = new Vector3(50, 50, 50); // intend to be able to use segments of different sizes later
         
         for (var i = 0; i < totalSegments; i++)
         {
             var position = new Vector3(0, 0, sizeOfLastSegment.z * i);
+            
+            // create empty hallway segment
             var segment = Instantiate(HallwayPrefab, position, Quaternion.identity, transform);
-            //sizeOfLastSegment = segment.GetComponent<Renderer>().bounds.size;
 
-            if (i == totalSegments - 1)
+            if (i == totalSegments - 1) // last element, let's make a goal
             {
                 Instantiate(GoalPrefab, position, Quaternion.identity, transform);
             } 
-            else if (i >= NumberOfLeadingSegments)
+            else if (i >= NumberOfLeadingSegments) // we're beyond the leading empty segment, so let's place an obstacle
             {
-                PlaceRandomObstacle(position, segment.transform);
+                Instantiate(obstacles[i - NumberOfLeadingSegments], position, Quaternion.identity, segment.transform);
             }
-                
         }
     }
 
-    private void PlaceRandomObstacle(Vector3 position, Transform parent)
+    private IEnumerable<GameObject> CreateEndlessRandomObstacleList()
     {
-        var random = Random.Range(0, _obstacles.Count);
-        var obstacle = _obstacles[random];
-        _obstacles.Remove(obstacle);
+        var obstacles = new List<GameObject>();
+        
+        while (true)
+        {
+            if (!obstacles.Any())
+                obstacles.AddRange(Obstacles);
+            
+            var random = Random.Range(0, obstacles.Count);
+            var obstacle = obstacles[random];
+            obstacles.Remove(obstacle);
 
-        Instantiate(obstacle, position, Quaternion.identity, parent);
+            yield return obstacle;
+        }
     }
 }
