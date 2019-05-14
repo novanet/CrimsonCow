@@ -1,13 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityStandardAssets.Cameras;
 
 public class PlayerCollision : MonoBehaviour
 {
     private PlayerControl _playerControl;
     private bool _isStunned = false;
     private float _timeOfLastCollision = 0;
-    private Vector3 _backoffTarget;
-    private float _cameraDistance;
     
     [Tooltip("Number of seconds the player will lose control on collision")]
     public float StunTime = 1f;
@@ -31,7 +29,6 @@ public class PlayerCollision : MonoBehaviour
         else if (_isStunned)
         {
             BackOff();
-            SetCamera();
         }
     }
 
@@ -42,22 +39,34 @@ public class PlayerCollision : MonoBehaviour
         transform.position += distance;
     }
     
-    private void SetCamera()
-    {
-        Camera.transform.position = transform.position - transform.forward * _cameraDistance;
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
             return;
+
+        if (other.CompareTag("Finish"))
+        {
+            TriggerEnd();
+            return;
+        }
         
         Debug.Log($"OnTriggerEnter: {other.name} ({other.GetType().Name})");
 
         Stun();
         DisablePlayerControl();
-        SetTarget();
-        RegisterCameraDistance();
+    }
+
+    private void TriggerEnd()
+    {
+        Camera.GetComponent<AutoCam>().enabled = false;
+        Camera.GetComponent<LookAtCam>().enabled = true;
+        GetComponent<PlayerControl>().enabled = false;
+        var rigidbody = GetComponent<Rigidbody>();
+        rigidbody.useGravity = true;
+        rigidbody.isKinematic = false;
+        
+        Destroy(this);
     }
 
     private void Stun()
@@ -79,15 +88,5 @@ public class PlayerCollision : MonoBehaviour
     private void EnablePlayerControl()
     {
         _playerControl.enabled = true;
-    }
-
-    private void SetTarget()
-    {
-        _backoffTarget = transform.position - transform.forward * BackOffDistance;
-    }
-
-    private void RegisterCameraDistance()
-    {
-        _cameraDistance = (transform.position - Camera.transform.position).magnitude;
     }
 }

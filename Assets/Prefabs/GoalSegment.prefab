@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1375641103}
   - component: {fileID: 1375641102}
   - component: {fileID: 1375641101}
+  - component: {fileID: 4476812644694578064}
   m_Layer: 0
   m_Name: Goalage
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,7 +50,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375641099}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -91,6 +92,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4476812644694578064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375641099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c653d7480dbf8e74b9ae34cbb0cf9b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Material: {fileID: 2100000, guid: 784141736b49374439bf72036687cf93, type: 2}
+  ShardsPerAxis: 6
 --- !u!1 &3851900346696578765
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +177,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ef77fff5b8d72bb4298b0346cc0e3111, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -193,6 +208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GoalSegment
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342774704413323865, guid: ef541c1cda8e8ef40a470b5946bf5021,
+        type: 3}
+      propertyPath: m_TagString
+      value: Finish
       objectReference: {fileID: 0}
     - target: {fileID: 2047368275228211355, guid: ef541c1cda8e8ef40a470b5946bf5021,
         type: 3}
