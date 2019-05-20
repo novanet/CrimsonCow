@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class PlayerControl : MonoBehaviour
@@ -25,6 +26,11 @@ public class PlayerControl : MonoBehaviour
     
     void FixedUpdate()
     {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
+
         Rotate();
 
         Pitch();
