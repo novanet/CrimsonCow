@@ -2694,7 +2694,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2620267144177166634}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
@@ -2749,7 +2749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNumber: 0
-  MoveSpeed: 15
+  MoveSpeed: 25
   RotationSpeed: 180
   PitchSpeed: 120
 --- !u!54 &8134217408305023401
