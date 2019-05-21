@@ -351,7 +351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 3}
       propertyPath: m_LocalPosition.x
@@ -359,7 +359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 3}
       propertyPath: m_LocalPosition.z
@@ -408,6 +408,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 3}
       propertyPath: m_LocalScale.z
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 3}
+      propertyPath: waterMode
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 3}
@@ -819,12 +823,10 @@ MonoBehaviour:
   GoalPrefab: {fileID: 8476532385859808027, guid: dad90ebc90bf1284cb70034c6008cd94,
     type: 3}
   Obstacles:
-  - {fileID: 2655896610319322495, guid: 7f9d0648d3b52e944a8ad16bde16f80a, type: 3}
-  - {fileID: 737143365282551907, guid: 7d19e4dc01baf0c46bdf6d12438803c7, type: 3}
-  - {fileID: 1473224640459766134, guid: 57c0a56c4beff6246b01ff24cf68567e, type: 3}
-  - {fileID: 737143365282551907, guid: 45a8de3646f46dd4d95eeafe52cdc11c, type: 3}
   - {fileID: 737143365282551907, guid: 4f12e112db0a8bc498cef87e18a34e82, type: 3}
-  - {fileID: 3951148006173564116, guid: ed833d0af369ccb47901c1b64ac571bc, type: 3}
+  - {fileID: 1687702938360863901, guid: adb5ede1746025e4fbef07eada533dd0, type: 3}
+  - {fileID: 737143365282551907, guid: 7d19e4dc01baf0c46bdf6d12438803c7, type: 3}
+  - {fileID: 2655896610319322495, guid: 7f9d0648d3b52e944a8ad16bde16f80a, type: 3}
 --- !u!1001 &2620267145134394848
 PrefabInstance:
   m_ObjectHideFlags: 0
