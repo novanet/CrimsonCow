@@ -319,7 +319,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338487910}
   m_LocalRotation: {x: 0.09219675, y: -0, z: -0, w: 0.99574083}
-  m_LocalPosition: {x: 0, y: 7.86, z: -4.18}
+  m_LocalPosition: {x: 0, y: 7.86, z: -24.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -490,7 +490,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0.09219675, y: -0, z: -0, w: 0.99574083}
-  m_LocalPosition: {x: 0, y: 5.51, z: -4.18}
+  m_LocalPosition: {x: 0, y: 5.51, z: -24.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -819,7 +819,7 @@ MonoBehaviour:
   GoalPrefab: {fileID: 8476532385859808027, guid: dad90ebc90bf1284cb70034c6008cd94,
     type: 3}
   Obstacles:
-  - {fileID: 1687702938360863901, guid: adb5ede1746025e4fbef07eada533dd0, type: 3}
+  - {fileID: 2655896610319322495, guid: 7f9d0648d3b52e944a8ad16bde16f80a, type: 3}
   - {fileID: 737143365282551907, guid: 7d19e4dc01baf0c46bdf6d12438803c7, type: 3}
   - {fileID: 1473224640459766134, guid: 57c0a56c4beff6246b01ff24cf68567e, type: 3}
   - {fileID: 737143365282551907, guid: 45a8de3646f46dd4d95eeafe52cdc11c, type: 3}
