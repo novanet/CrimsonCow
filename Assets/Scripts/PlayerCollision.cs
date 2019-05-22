@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityStandardAssets.Cameras;
 
 public class PlayerCollision : MonoBehaviour
@@ -53,8 +54,17 @@ public class PlayerCollision : MonoBehaviour
         
         Debug.Log($"OnTriggerEnter: {other.name} ({other.GetType().Name})");
 
+        PlaySound();
         Stun();
         DisablePlayerControl();
+    }
+
+    private void PlaySound()
+    {
+        System.Random rnd = new System.Random();
+        int idx = rnd.Next(0, 2);
+        var audioSources = GetComponents<AudioSource>();
+        audioSources[idx].Play();
     }
 
     private void TriggerEnd()
