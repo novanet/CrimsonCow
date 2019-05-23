@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -217,6 +217,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &176037022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2620267144177166634, guid: a580709f09051b849a0c4c4eb378c62c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2620267145134394848}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &176037026
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176037022}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &338487910
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,6 +788,16 @@ PrefabInstance:
       propertyPath: MoveSpeed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 2620267144334756589, guid: a580709f09051b849a0c4c4eb378c62c,
+        type: 3}
+      propertyPath: Acceleration
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620267144334756589, guid: a580709f09051b849a0c4c4eb378c62c,
+        type: 3}
+      propertyPath: MaxSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2620267144152108091, guid: a580709f09051b849a0c4c4eb378c62c,
         type: 3}
       propertyPath: m_AABB.m_Center.y
@@ -897,6 +927,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134217408305023401, guid: a580709f09051b849a0c4c4eb378c62c,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134217408305023401, guid: a580709f09051b849a0c4c4eb378c62c,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2187097280279338971, guid: a580709f09051b849a0c4c4eb378c62c,
+        type: 3}
+      propertyPath: Pan2D
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900027978681059072, guid: a580709f09051b849a0c4c4eb378c62c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900027978681059072, guid: a580709f09051b849a0c4c4eb378c62c,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a580709f09051b849a0c4c4eb378c62c, type: 3}
@@ -1051,6 +1106,16 @@ PrefabInstance:
       propertyPath: MoveSpeed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 2620267144334756589, guid: a580709f09051b849a0c4c4eb378c62c,
+        type: 3}
+      propertyPath: Acceleration
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620267144334756589, guid: a580709f09051b849a0c4c4eb378c62c,
+        type: 3}
+      propertyPath: MaxSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2620267144152108091, guid: a580709f09051b849a0c4c4eb378c62c,
         type: 3}
       propertyPath: m_AABB.m_Center.z
@@ -1194,13 +1259,32 @@ PrefabInstance:
     - target: {fileID: 8134217408305023401, guid: a580709f09051b849a0c4c4eb378c62c,
         type: 3}
       propertyPath: m_CollisionDetection
-      value: 3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134217408305023401, guid: a580709f09051b849a0c4c4eb378c62c,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2620267144177166636, guid: a580709f09051b849a0c4c4eb378c62c,
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5889924599145851484, guid: a580709f09051b849a0c4c4eb378c62c, type: 3}
+    - target: {fileID: -2187097280279338971, guid: a580709f09051b849a0c4c4eb378c62c,
+        type: 3}
+      propertyPath: Pan2D
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900027978681059072, guid: a580709f09051b849a0c4c4eb378c62c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900027978681059072, guid: a580709f09051b849a0c4c4eb378c62c,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a580709f09051b849a0c4c4eb378c62c, type: 3}

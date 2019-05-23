@@ -7,7 +7,7 @@ public class ShatterOnImpact : MonoBehaviour
     public Material Material;
     public int ShardsPerAxis = 6;
     
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision other)
     {
         var size = GetComponent<Renderer>().bounds.size;
         var shardSize = size / 6;
