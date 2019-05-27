@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class PlayerControl : MonoBehaviour
@@ -40,8 +41,17 @@ public class PlayerControl : MonoBehaviour
         ApplyRotation();
         
         Move();
+
+        Quit();
     }
 
+    private void Quit()
+    {
+        if (Input.GetKey("escape"))
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
     private void Rotate()
     {
         var horizontal = Input.GetAxisRaw($"Horizontal.Player{PlayerNumber}");
