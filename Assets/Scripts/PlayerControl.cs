@@ -41,17 +41,8 @@ public class PlayerControl : MonoBehaviour
         ApplyRotation();
         
         Move();
-
-        Quit();
     }
 
-    private void Quit()
-    {
-        if (Input.GetKey("escape"))
-        {
-            SceneManager.LoadScene(0);
-        }
-    }
     private void Rotate()
     {
         var horizontal = Input.GetAxisRaw($"Horizontal.Player{PlayerNumber}");
