@@ -9,38 +9,6 @@ InputManager:
     m_Name: Horizontal.Player1
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: a
-    positiveButton: d
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 3
-    snap: 1
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: Vertical.Player1
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: s
-    positiveButton: w
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 3
-    snap: 1
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: Horizontal.Player2
-    descriptiveName: 
-    descriptiveNegativeName: 
     negativeButton: left
     positiveButton: right
     altNegativeButton: 
@@ -54,7 +22,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Vertical.Player2
+    m_Name: Vertical.Player1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: down
@@ -70,13 +38,45 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
+    m_Name: Horizontal.Player2
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: d
+    positiveButton: g
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 3
+    snap: 1
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Vertical.Player2
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: f
+    positiveButton: r
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 3
+    snap: 1
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
     m_Name: Submit
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: enter
+    positiveButton: left ctrl
     altNegativeButton: 
-    altPositiveButton: space
+    altPositiveButton: a
     gravity: 1000
     dead: 0.001
     sensitivity: 3
@@ -90,9 +90,9 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: escape
+    positiveButton: space
     altNegativeButton: 
-    altPositiveButton: escape
+    altPositiveButton: 
     gravity: 1000
     dead: 0.001
     sensitivity: 3
@@ -105,10 +105,10 @@ InputManager:
     m_Name: Horizontal
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: up
+    negativeButton: right
+    positiveButton: left
     altNegativeButton: 
-    altPositiveButton: down
+    altPositiveButton: 
     gravity: 1000
     dead: 0.001
     sensitivity: 3
@@ -121,10 +121,10 @@ InputManager:
     m_Name: Vertical
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: left
+    negativeButton: down
+    positiveButton: up
     altNegativeButton: 
-    altPositiveButton: right
+    altPositiveButton: 
     gravity: 1000
     dead: 0.001
     sensitivity: 3
