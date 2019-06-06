@@ -17,7 +17,7 @@ public class HallwayGenerator : MonoBehaviour
         var totalSegments = NumberOfObstacles + NumberOfLeadingSegments + 1; // one extra for goal segment
         var obstacles = CreateEndlessRandomObstacleList().Take(NumberOfObstacles).ToArray();
         
-        var sizeOfLastSegment = new Vector3(50, 50, 50); // intend to be able to use segments of different sizes later
+        var sizeOfLastSegment = new Vector3(75,75,75); // intend to be able to use segments of different sizes later
         
         for (var i = 0; i < totalSegments; i++)
         {
