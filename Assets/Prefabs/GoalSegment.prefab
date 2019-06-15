@@ -50,7 +50,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375641099}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -208,16 +208,6 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2342774704413323865, guid: ef541c1cda8e8ef40a470b5946bf5021,
-        type: 3}
-      propertyPath: m_Name
-      value: GoalSegment
-      objectReference: {fileID: 0}
-    - target: {fileID: 2342774704413323865, guid: ef541c1cda8e8ef40a470b5946bf5021,
-        type: 3}
-      propertyPath: m_TagString
-      value: Finish
-      objectReference: {fileID: 0}
     - target: {fileID: 2047368275228211355, guid: ef541c1cda8e8ef40a470b5946bf5021,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -272,6 +262,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342774704413323865, guid: ef541c1cda8e8ef40a470b5946bf5021,
+        type: 3}
+      propertyPath: m_Name
+      value: GoalSegment
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342774704413323865, guid: ef541c1cda8e8ef40a470b5946bf5021,
+        type: 3}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456773933890903076, guid: ef541c1cda8e8ef40a470b5946bf5021,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405226673463784540, guid: ef541c1cda8e8ef40a470b5946bf5021,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1045449607184346275, guid: ef541c1cda8e8ef40a470b5946bf5021,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef541c1cda8e8ef40a470b5946bf5021, type: 3}

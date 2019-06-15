@@ -9,6 +9,7 @@ public class OnGoalCollision : MonoBehaviour
     private List<MonoBehaviour> _thingsToEnable = new List<MonoBehaviour>();
 
     public Camera Camera;
+    public OnGoalCollision OtherPlayer;
     
     public void Start()
     {
@@ -18,15 +19,17 @@ public class OnGoalCollision : MonoBehaviour
         _thingsToEnable.Add(Camera.GetComponent<LookAtCam>());
     }
 
-    public void OnCollisionEnter(Collision other)
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Finish"))
+        if (other.CompareTag("Finish"))
         {
-            TriggerEnd();
+            DisableAlmostEverything();
+            OtherPlayer.DisableAlmostEverything();
+            Destroy(this);
         }
     }
 
-    private void TriggerEnd()
+    public void DisableAlmostEverything()
     {
         _thingsToDisable.ForEach(x => x.enabled = false);        
         _thingsToEnable.ForEach(x => x.enabled = true);        
@@ -34,7 +37,5 @@ public class OnGoalCollision : MonoBehaviour
         var rigidbody = GetComponent<Rigidbody>();
         rigidbody.useGravity = true;
         rigidbody.isKinematic = false;
-        
-        Destroy(this);
     }
 }
