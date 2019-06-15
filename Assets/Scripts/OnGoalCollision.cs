@@ -25,6 +25,10 @@ public class OnGoalCollision : MonoBehaviour
         {
             DisableAlmostEverything();
             OtherPlayer.DisableAlmostEverything();
+            
+            Camera.GetComponent<Wipe>().GoFullScreen();
+            OtherPlayer.Camera.GetComponent<Wipe>().GoAway();
+            
             Destroy(this);
         }
     }
