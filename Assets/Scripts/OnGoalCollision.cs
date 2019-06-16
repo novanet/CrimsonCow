@@ -10,9 +10,14 @@ public class OnGoalCollision : MonoBehaviour
 
     public Camera Camera;
     public OnGoalCollision OtherPlayer;
-    
+    private SlideInWinnerText _winnerText;
+    private int _playerNumber;
+
     public void Start()
     {
+        _winnerText = GameObject.Find("WinnerText").GetComponent<SlideInWinnerText>();
+        _playerNumber = GetComponent<PlayerControl>().PlayerNumber;
+        
         _thingsToDisable.Add(GetComponent<PlayerControl>());
         _thingsToDisable.Add(Camera.GetComponent<AutoCam>());
         
@@ -23,11 +28,16 @@ public class OnGoalCollision : MonoBehaviour
     {
         if (other.CompareTag("Finish"))
         {
+            //disable both players' input, enable gravity
             DisableAlmostEverything();
             OtherPlayer.DisableAlmostEverything();
             
+            // let screen of winner take full screen
             Camera.GetComponent<Wipe>().GoFullScreen();
             OtherPlayer.Camera.GetComponent<Wipe>().GoAway();
+            
+            // slide in winner text, play cheering sound
+            _winnerText.SetWinner(_playerNumber);
             
             Destroy(this);
         }
