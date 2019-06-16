@@ -7,11 +7,10 @@ public class ShatterOnImpact : MonoBehaviour
     public Material Material;
     public int ShardsPerAxis = 6;
     
-    public void OnCollisionEnter(Collision other)
+    public void OnTriggerEnter(Collider other)
     {
         var size = GetComponent<Renderer>().bounds.size;
         var shardSize = size / 6;
-        Debug.Log($"I am a cube of size {shardSize.x},{shardSize.y},{shardSize.z}");
         var startX = shardSize.x / 2;
         var startY = shardSize.y / 2;
         
