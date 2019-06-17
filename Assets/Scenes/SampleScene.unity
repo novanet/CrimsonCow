@@ -1120,7 +1120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82a494eabcc3ca48a22cf3ca7abfb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfObstacles: 0
+  NumberOfObstacles: 12
   NumberOfLeadingSegments: 1
   HallwayPrefab: {fileID: 2342774704413323865, guid: ef541c1cda8e8ef40a470b5946bf5021,
     type: 3}
@@ -1310,7 +1310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 500}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 1920, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1995623363

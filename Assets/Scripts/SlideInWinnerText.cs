@@ -12,7 +12,7 @@ public class SlideInWinnerText : MonoBehaviour
     private float _secondsPerSingleColourChange = 0.083f;
     private float _lastSingleColourChange;
     
-    private float _textPosyChangePerFrame = 3f;
+    private float _textPosyChangePerFrame = 4f;
     
     private RectTransform _rectTransform;
     private Text _text;
@@ -35,8 +35,15 @@ public class SlideInWinnerText : MonoBehaviour
             new Color(0, colourChangePerFrame, 0),
             new Color(0, 0, -colourChangePerFrame),
         };
+
+        PutTextAboveScreen();
     }
-    
+
+    private void PutTextAboveScreen()
+    {
+        _rectTransform.anchoredPosition3D = new Vector3(0, -Screen.height / 2 - 100, 0);
+    }
+
     void FixedUpdate()
     {
         if (_isGameFinished)
