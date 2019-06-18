@@ -5,14 +5,16 @@ using UnityEngine;
 public class PointTowardsGoal : MonoBehaviour
 {
     private Vector3 _goal;
+    
+    public Camera Camera;
 
-    private void Start()
+    public void Start()
     {
         _goal = new Vector3(0, 0, float.MaxValue);
     }
 
-    void Update()
+    public void Update()
     {
-        transform.LookAt(_goal);
+        transform.localRotation = Quaternion.Euler(-Camera.transform.rotation.eulerAngles);
     }
 }
