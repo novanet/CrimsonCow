@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c653d7480dbf8e74b9ae34cbb0cf9b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Material: {fileID: 2100000, guid: f09f1f99c25e27247bc947b7735fba2d, type: 2}
+  Prefab: {fileID: 4653338305472083830, guid: f411d18991d9226469ec096f0914d2b1, type: 3}
   ShardsPerAxis: 6
 --- !u!1 &3851900346696578765
 GameObject:
@@ -208,16 +208,6 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2342774704413323865, guid: ef541c1cda8e8ef40a470b5946bf5021,
-        type: 3}
-      propertyPath: m_Name
-      value: GoalSegment
-      objectReference: {fileID: 0}
-    - target: {fileID: 2342774704413323865, guid: ef541c1cda8e8ef40a470b5946bf5021,
-        type: 3}
-      propertyPath: m_TagString
-      value: Finish
-      objectReference: {fileID: 0}
     - target: {fileID: 2047368275228211355, guid: ef541c1cda8e8ef40a470b5946bf5021,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -272,6 +262,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342774704413323865, guid: ef541c1cda8e8ef40a470b5946bf5021,
+        type: 3}
+      propertyPath: m_Name
+      value: GoalSegment
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342774704413323865, guid: ef541c1cda8e8ef40a470b5946bf5021,
+        type: 3}
+      propertyPath: m_TagString
+      value: Finish
       objectReference: {fileID: 0}
     - target: {fileID: 7456773933890903076, guid: ef541c1cda8e8ef40a470b5946bf5021,
         type: 3}

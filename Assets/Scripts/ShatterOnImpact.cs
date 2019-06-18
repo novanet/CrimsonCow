@@ -2,7 +2,7 @@
 
 public class ShatterOnImpact : MonoBehaviour
 {
-    public Material Material;
+    public Transform Prefab;
     public int ShardsPerAxis = 6;
     
     public void OnTriggerEnter(Collider other)
@@ -21,29 +21,20 @@ public class ShatterOnImpact : MonoBehaviour
             {
                 var basePosition = transform.position - new Vector3(size.x / 2, size.y / 2, size.z / 2);
                 var relativePosition = new Vector3(startX + shardSize.x * x, startY + shardSize.y * y, 0);
-                CreateShard(shardSize, basePosition + relativePosition, containerObject);
+                CreateShard(basePosition + relativePosition, containerObject);
             }
         }
         
         Destroy(gameObject);
     }
 
-    private void CreateShard(Vector3 size, Vector3 position, Transform parent)
+    private void CreateShard(Vector3 position, Transform parent)
     {
-        size = size * 0.9f;
-        
-        var shard = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        shard.transform.parent = parent;
-        
-        shard.transform.localScale = size;
-        shard.transform.position = position;
-        shard.GetComponent<Renderer>().material = Material;
-        
-        //add physics
-        var rigidBody = shard.AddComponent<Rigidbody>();
-        
+        var shard = Instantiate(Prefab, position, Quaternion.identity, parent);
+        var shardRigidbody = shard.GetComponent<Rigidbody>();
+           
         // give random spin
-        rigidBody.AddTorque(
+        shardRigidbody.AddTorque(
             Random.Range(-90f, 90f),
             Random.Range(-90, 90f),
             Random.Range(-90, 90f)

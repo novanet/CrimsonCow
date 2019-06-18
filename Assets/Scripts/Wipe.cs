@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Wipe : MonoBehaviour
 {
+    private Rect _rect;
+    
     private enum WipeMode
     {
         None,
@@ -17,37 +20,49 @@ public class Wipe : MonoBehaviour
     {
         _wipeMode = WipeMode.None;
         _camera = GetComponent<Camera>();
+        _rect = _camera.rect;
     }
 
     void Update()
     {
-        if (_camera.rect.width >= 1.0f || _camera.rect.width <= 0.0f)
-            _wipeMode = WipeMode.None;
+        if (_wipeMode != WipeMode.None)
+        StartCoroutine(WaitABitThenSwitch());
+
+//        if (_rect.width >= 1.0f || _rect.width <= 0.0f)
+//            _wipeMode = WipeMode.None;
+//        
+//        if (_wipeMode == WipeMode.GoFull)
+//            GoTowardsFull();
+//        else if (_wipeMode == WipeMode.GoAway)
+//            GoTowardsNone();
+    }
+
+    private IEnumerator WaitABitThenSwitch()
+    {
+        yield return new WaitForSeconds(2);
         
         if (_wipeMode == WipeMode.GoFull)
             GoTowardsFull();
-        else if (_wipeMode == WipeMode.GoAway)
-            GoTowardsNone();
+        else
+            GoTowardsAway();
     }
 
     private void GoTowardsFull()
     {
-        var rect = _camera.rect;
-        _camera.rect = new Rect(
-            rect.x <= 0 ? 0 : rect.x - _changePerFrame, 
-            rect.y, 
-            rect.width + _changePerFrame, 
-            rect.height);
+        _camera.rect = new Rect(0, 0, Screen.width, Screen.height);
+//        
+//        _rect.x = _rect.x <= 0 ? 0 : _rect.x - _changePerFrame;
+//        _rect.width += _changePerFrame; 
+//        _camera.rect = _rect;
     }
 
-    private void GoTowardsNone()
+    private void GoTowardsAway()
     {
-        var rect = _camera.rect;
-        _camera.rect = new Rect(
-            rect.x <= 0 ? 0 : rect.x + _changePerFrame, 
-            rect.y, 
-            rect.width - _changePerFrame, 
-            rect.height);
+        _camera.enabled = false;
+
+//        _rect.x = _rect.x <= 0 ? 0 : _rect.x + _changePerFrame;
+//        _rect.width -= _changePerFrame;
+//        _camera.rect = _rect;
     }
 
     public void GoFullScreen()
