@@ -41,10 +41,10 @@ public class SlideInWinnerText : MonoBehaviour
 
     private void PutTextAboveScreen()
     {
-        _rectTransform.anchoredPosition3D = new Vector3(0, -Screen.height / 2 - 100, 0);
+        _rectTransform.anchoredPosition3D = new Vector3(0, Screen.height / 2 + 100, 0);
     }
 
-    void FixedUpdate()
+    public void FixedUpdate()
     {
         if (_isGameFinished)
         {
