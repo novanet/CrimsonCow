@@ -11,7 +11,7 @@ public class CowMultiplier : MonoBehaviour
     private float _creationTime;
     private float _minTimeBeforeDuplication = 1f;
     private bool _notDuplicatedYet = true;
-    private float _upwardForce = 600f;
+    private float _averageUpwardForce = 600f;
     private AudioSource[] _audioSources;
 
     public void Start()
@@ -34,7 +34,7 @@ public class CowMultiplier : MonoBehaviour
 
     public void OnCollisionEnter(Collision other)
     {
-        if (CanCreate())
+        if (enabled && CanCreate())
         {
             CreateNewCow();
             CreateNewCow();
@@ -56,8 +56,10 @@ public class CowMultiplier : MonoBehaviour
     {
         var cow = Instantiate(CowPrefab, transform.position + new Vector3(Random.Range(-1, 1), 2, Random.Range(-1, 1)), Quaternion.identity, transform);
         
-        var cowRigidbody = cow.GetComponent<Rigidbody>(); 
-        cowRigidbody.AddForce(new Vector3(Random.Range(-0.5f, 0.5f), 1, Random.Range(-0.5f, 0.5f)).normalized * _upwardForce);
+        var cowRigidbody = cow.GetComponent<Rigidbody>();
+        var forceOffset = _averageUpwardForce * 0.2f;
+        var randomUpwardForce = Random.Range(_averageUpwardForce - forceOffset, _averageUpwardForce + forceOffset);
+        cowRigidbody.AddForce(new Vector3(Random.Range(-0.5f, 0.5f), 1, Random.Range(-0.5f, 0.5f)).normalized * randomUpwardForce);
         cowRigidbody.AddTorque(new Vector3(
             Random.Range(0, 360),
             Random.Range(0, 360),
@@ -68,14 +70,4 @@ public class CowMultiplier : MonoBehaviour
         cowMultiplier.Iterations = --Iterations;
         cowMultiplier.CowPrefab = CowPrefab;
     }
-
-    // to be able to start from a different gameObject
-    public void BeginMultiplication()
-    {
-        Debug.Log("Start multiplication!");
-        
-        CreateNewCow();
-        CreateNewCow();
-    }
-        
 }
