@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class CowMultiplier : MonoBehaviour
 {
-    public int Iterations;
+    public int MaxIterations = 10;
+    public int CurrentIteration = 0;
     public GameObject CowPrefab;
     
     private float _creationTime;
@@ -36,8 +37,8 @@ public class CowMultiplier : MonoBehaviour
     {
         if (enabled && CanCreate())
         {
-            CreateNewCow();
-            CreateNewCow();
+            StartCoroutine(CreateNewCow(0f));
+            StartCoroutine(CreateNewCow(0.2f));
 
             _notDuplicatedYet = false;
         }
@@ -45,29 +46,39 @@ public class CowMultiplier : MonoBehaviour
 
     private bool CanCreate()
     {
-        var canCreate = Time.time > _creationTime + _minTimeBeforeDuplication 
+        var canCreate = Time.time > _creationTime + _minTimeBeforeDuplication
                         && _notDuplicatedYet
-                        && Iterations > 0; 
+                        && CurrentIteration <= MaxIterations; 
         
         return canCreate;
     }
 
-    private void CreateNewCow()
+    private IEnumerator CreateNewCow(float delay)
     {
-        var cow = Instantiate(CowPrefab, transform.position + new Vector3(Random.Range(-1, 1), 2, Random.Range(-1, 1)), Quaternion.identity, transform);
+        var position = transform.position;
+        yield return new WaitForSeconds(delay);
         
+        // create larger cows for every iteration
+        var scale = 1 + CurrentIteration / 3f;
+        var cow = Instantiate(CowPrefab, position + new Vector3(0, 2 + scale, 0), Quaternion.identity, transform.parent);
+        cow.transform.localScale = new Vector3(scale, scale, scale);
+
+        // launch the cow upwards-ish
         var cowRigidbody = cow.GetComponent<Rigidbody>();
         var forceOffset = _averageUpwardForce * 0.2f;
         var randomUpwardForce = Random.Range(_averageUpwardForce - forceOffset, _averageUpwardForce + forceOffset);
         cowRigidbody.AddForce(new Vector3(Random.Range(-0.5f, 0.5f), 1, Random.Range(-0.5f, 0.5f)).normalized * randomUpwardForce);
+        
+        // give the cow a random spin
         cowRigidbody.AddTorque(new Vector3(
             Random.Range(0, 360),
             Random.Range(0, 360),
             Random.Range(0, 360)
             ));
 
+        // initialize new cow multiplier, do not stack overflow
         var cowMultiplier = cow.GetComponent<CowMultiplier>();  
-        cowMultiplier.Iterations = --Iterations;
+        cowMultiplier.CurrentIteration = ++CurrentIteration;
         cowMultiplier.CowPrefab = CowPrefab;
     }
 }
