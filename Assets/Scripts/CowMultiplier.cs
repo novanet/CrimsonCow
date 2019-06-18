@@ -25,7 +25,7 @@ public class CowMultiplier : MonoBehaviour
     {
         yield return new WaitForSeconds(Random.Range(0f, 0.4f));
         
-        var randomIndex = Random.Range(0, _audioSources.Length - 1); 
+        var randomIndex = Random.Range(0, _audioSources.Length); 
         var audioSource = _audioSources[randomIndex];
         audioSource.pitch = Random.Range(0.8f, 1.2f);
         audioSource.Play();
