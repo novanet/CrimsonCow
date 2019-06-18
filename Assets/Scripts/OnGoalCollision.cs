@@ -12,6 +12,7 @@ public class OnGoalCollision : MonoBehaviour
     public OnGoalCollision OtherPlayer;
     private SlideInWinnerText _winnerText;
     private int _playerNumber;
+    private bool _hasWon;
 
     public void Start()
     {
@@ -20,6 +21,7 @@ public class OnGoalCollision : MonoBehaviour
         
         _thingsToDisable.Add(GetComponent<PlayerControl>());
         _thingsToDisable.Add(Camera.GetComponent<AutoCam>());
+        _thingsToDisable.Add(GetComponent<SayMooOnCollide>());
         
         _thingsToEnable.Add(Camera.GetComponent<LookAtCam>());
     }
@@ -28,6 +30,8 @@ public class OnGoalCollision : MonoBehaviour
     {
         if (other.CompareTag("Finish"))
         {
+            GetComponent<CowMultiplier>().enabled = true;
+            
             //disable both players' input, enable gravity
             DisableAlmostEverything();
             OtherPlayer.DisableAlmostEverything();
@@ -38,8 +42,6 @@ public class OnGoalCollision : MonoBehaviour
             
             // slide in winner text, play cheering sound
             _winnerText.SetWinner(_playerNumber);
-            
-            Destroy(this);
         }
     }
 

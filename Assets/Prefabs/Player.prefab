@@ -17,7 +17,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cecc67acfd724c94698175db55f31c0c, type: 2}
+  - {fileID: 2100000, guid: b83d3bf75db8f704fb67e55cf64a537f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1721,6 +1721,7 @@ GameObject:
   - component: {fileID: -2187097280279338971}
   - component: {fileID: 1387279230089046804}
   - component: {fileID: 4050394764096488531}
+  - component: {fileID: 4353079968668416147}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1996,6 +1997,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 270602985695c474b80e11c74d26970b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4353079968668416147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2620267144334756587}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be74df7123121884393911b328827a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Iterations: 8
+  CowPrefab: {fileID: 9194151279083384505, guid: 3a438398d06fdc24e97da441f6e8912c,
+    type: 3}
 --- !u!1 &2620267144698585953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2990,6 +3006,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2620267144334756588}
     m_Modifications:
+    - target: {fileID: 1287295899898638, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
+      propertyPath: m_Name
+      value: CowShadow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287295899898638, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4054502789990554, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3034,16 +3058,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1287295899898638, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
-      propertyPath: m_Name
-      value: CowShadow
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287295899898638, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    - {fileID: 23019307580939166, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
 --- !u!1 &666505147618701497 stripped
 GameObject:
@@ -3064,6 +3081,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2620267144334756588}
     m_Modifications:
+    - target: {fileID: 1287295899898638, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
+      propertyPath: m_Name
+      value: Cow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287295899898638, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4054502789990554, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3108,20 +3133,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1287295899898638, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
-      propertyPath: m_Name
-      value: Cow
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287295899898638, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 95051569790832444, guid: 9ec060093457ad84ca2733cb15c2c41e,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 23019307580939166, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
 --- !u!4 &2617550818694441539 stripped
 Transform:

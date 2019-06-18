@@ -73,8 +73,6 @@ public class PlayerControl : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Finish"))
             return;
-        
-        Debug.Log($"PlayerControl.OnCollisionEnter: {other.gameObject.name}");
 
         _currentSpeed = MaxSpeed / 3;
     }
