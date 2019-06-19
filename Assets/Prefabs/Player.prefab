@@ -1760,7 +1760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerNumber: 0
   Acceleration: 4
-  MaxSpeed: 40
+  MaxSpeed: 30
   RotationSpeed: 180
   PitchSpeed: 120
 --- !u!54 &8134217408305023401
@@ -2009,7 +2009,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be74df7123121884393911b328827a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Iterations: 8
+  MaxIterations: 10
+  CurrentIteration: 0
   CowPrefab: {fileID: 9194151279083384505, guid: 3a438398d06fdc24e97da441f6e8912c,
     type: 3}
 --- !u!1 &2620267144698585953

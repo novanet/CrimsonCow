@@ -27,7 +27,7 @@ public class CowMultiplier : MonoBehaviour
         
         var randomIndex = Random.Range(0, _audioSources.Length); 
         var audioSource = _audioSources[randomIndex];
-        audioSource.pitch = Random.Range(0.8f, 1.2f);
+        audioSource.pitch = Random.Range(0.5f, 1.5f);
         audioSource.Play();
     }
 

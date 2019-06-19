@@ -28,7 +28,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 85f6d3458b9c47b4e86dd1eeda035383, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.793
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -124,7 +124,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 37a2df5091e86134798bd71d2d0aae9a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.797
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -234,7 +234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be74df7123121884393911b328827a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Iterations: 8
+  MaxIterations: 10
+  CurrentIteration: 0
   CowPrefab: {fileID: 0}
 --- !u!1001 &9195432526299168183
 PrefabInstance:

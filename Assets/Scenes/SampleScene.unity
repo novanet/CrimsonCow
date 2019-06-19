@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1213,7 +1213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NumberOfObstacles: 12
-  NumberOfLeadingSegments: 1
+  NumberOfLeadingSegments: 2
   HallwayPrefab: {fileID: 2342774704413323865, guid: ef541c1cda8e8ef40a470b5946bf5021,
     type: 3}
   GoalPrefab: {fileID: 8476532385859808027, guid: dad90ebc90bf1284cb70034c6008cd94,
@@ -1224,7 +1224,6 @@ MonoBehaviour:
   - {fileID: 737143365282551907, guid: 7d19e4dc01baf0c46bdf6d12438803c7, type: 3}
   - {fileID: 2655896610319322495, guid: 7f9d0648d3b52e944a8ad16bde16f80a, type: 3}
   - {fileID: 737143365282551907, guid: c8718a7d875d48246aae675808518967, type: 3}
-  - {fileID: 737143365282551907, guid: 27e799b49376e4448a69c4225c9ccc8c, type: 3}
 --- !u!114 &1820295283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1490,10 +1489,10 @@ RectTransform:
   m_Father: {fileID: 1939226711}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: 2560, y: 100}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1995623363
 MonoBehaviour:

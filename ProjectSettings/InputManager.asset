@@ -137,10 +137,10 @@ InputManager:
     m_Name: Horizontal.Player0
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: up
-    altNegativeButton: 
-    altPositiveButton: down
+    negativeButton: left
+    positiveButton: right
+    altNegativeButton: d
+    altPositiveButton: g
     gravity: 1000
     dead: 0.001
     sensitivity: 3
@@ -153,10 +153,10 @@ InputManager:
     m_Name: Vertical.Player0
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: left
-    altNegativeButton: 
-    altPositiveButton: right
+    negativeButton: down
+    positiveButton: up
+    altNegativeButton: f
+    altPositiveButton: r
     gravity: 1000
     dead: 0.001
     sensitivity: 3
